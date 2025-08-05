@@ -3,38 +3,51 @@
   <head>
     <title>Calculator</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
   </head>
   <body class="background">
     <div class="box">
       <input id="result" class="result" type="text" value="0" readonly />
       <div class="buttons">
         <span class="button-column">
-          <button class="button">7</button>
-          <button class="button">4</button>
-          <button class="button">1</button>
-          <button class="button" style="width: 120px">0</button>
+          <button class="button" onclick="writeToScreen('7')">7</button>
+          <button class="button" onclick="writeToScreen('4')">4</button>
+          <button class="button" onclick="writeToScreen('1')">1</button>
+          <button class="button" style="width: 120px" onclick="writeToScreen('0')">0</button>
         </span>
         <span class="button-column" style="margin-left: -58px">
-          <button class="button">8</button>
-          <button class="button">5</button>
-          <button class="button">2</button>
+          <button class="button" onclick="writeToScreen('8')">8</button>
+          <button class="button" onclick="writeToScreen('5')">5</button>
+          <button class="button" onclick="writeToScreen('2')">2</button>
         </span>
         <span class="button-column">
-          <button class="button">9</button>
-          <button class="button">6</button>
-          <button class="button">3</button>
-          <button class="button">.</button>
+          <button class="button" onclick="writeToScreen('9')">9</button>
+          <button class="button" onclick="writeToScreen('6')">6</button>
+          <button class="button" onclick="writeToScreen('3')">3</button>
+          <button class="button" onclick="writeToScreen('.')">.</button>
         </span>
         <span class="button-column">
-          <button class="op-button"><img src="assets/divide.png" alt= "/" style="width: 24px;"/></button>
-          <button class="op-button"><img src="assets/multiply.png" alt= "*" style="width: 22px;"/></button>
-          <button class="op-button"><img src="assets/minus.png" alt= "-" style="width: 24px;"/></button>
-          <button class="op-button"><img src="assets/plus.png" alt= "+" style="width: 24px;"/></button>
+          <button class="op-button">
+            <img src="assets/divide.png" alt= "÷" style="width: 24px" onclick="writeToScreen('÷')" />
+          </button>
+          <button class="op-button">
+            <img src="assets/multiply.png" alt="*" style="width: 22px" onclick="writeToScreen('x')" />
+          </button>
+          <button class="op-button">
+            <img src="assets/minus.png" alt="-" style="width: 24px" onclick="writeToScreen('-')" />
+          </button>
+          <button class="op-button">
+            <img src="assets/plus.png" alt="+" style="width: 24px" onclick="writeToScreen('+')" />
+          </button>
         </span>
         <span class="button-column">
-          <button class="delete-button"><img src="assets/delete.png" alt= "DEL" style="width: 24px;"/></button>
-          <button class="delete-button">AC</button>
-          <button class="solve-button"><img src="assets/equal.png" alt= "DEL" style="width: 24px;"/></button>
+          <button class="delete-button">
+            <img src="assets/delete.png" alt="DEL" style="width: 24px" onclick="clearLastCharacter()" />
+          </button>
+          <button class="delete-button" onclick="clearScreen()">AC</button>
+          <button class="solve-button">
+            <img src="assets/equal.png" alt="DEL" style="width: 24px" />
+          </button>
         </span>
       </div>
     </div>
