@@ -68,3 +68,36 @@ function isExpression(expression) {
     expression === "÷"
   );
 }
+
+function isNumber(key) {
+  return (
+    key === "0" ||
+    key === "1" ||
+    key === "2" ||
+    key === "3" ||
+    key === "4" ||
+    key === "5" ||
+    key === "6" ||
+    key === "7" ||
+    key === "8" ||
+    key === "9"
+  );
+}
+
+let arr = [];
+document.addEventListener("keypress", (event) => {
+  console.log(event.key);
+  if (isNumber(event.key) || isExpression(event.key)) {
+    writeToScreen(event.key);
+  } else if (event.key === "d") {
+    clearLastCharacter();
+  } else if (event.key === "c") {
+    clearScreen();
+  } else if (event.key === "*") {
+    writeToScreen("x");
+  } else if (event.key === "/") {
+    writeToScreen("÷");
+  } else if (event.key === ".") {
+    writeToScreen(".");
+  }
+});
