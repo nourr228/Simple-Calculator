@@ -69,8 +69,7 @@ function calculate() {
     if (isNumber(equation[j]) || equation[j] === ".") {
       num += equation[j];
     } else if (isExpression(equation[j])) {
-         exp = equation[j];
-    
+      exp = equation[j];
     } else if (equation[j] === " " && num !== "") {
       intNum = parseFloat(num);
       switch (exp) {
@@ -95,7 +94,7 @@ function calculate() {
   }
   console.log(total);
   totalAchieved = true;
-  document.getElementById("result").value = "" +total;
+  document.getElementById("result").value = "" + total;
   total = 0;
 }
 
@@ -152,7 +151,7 @@ document.addEventListener("keypress", (event) => {
     writeToScreen("÷");
   } else if (event.key === ".") {
     writeToScreen(".");
-  }else if (event.key === "Enter"){
+  } else if (event.key === "Enter") {
     calculate();
   }
 });

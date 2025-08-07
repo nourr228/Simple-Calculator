@@ -13,7 +13,13 @@
           <button class="button" onclick="writeToScreen('7')">7</button>
           <button class="button" onclick="writeToScreen('4')">4</button>
           <button class="button" onclick="writeToScreen('1')">1</button>
-          <button class="button" style="width: 125px" onclick="writeToScreen('0')">0</button>
+          <button
+            class="button"
+            style="width: 125px"
+            onclick="writeToScreen('0')"
+          >
+            0
+          </button>
         </span>
         <span class="button-column" style="margin-left: -66px">
           <button class="button" onclick="writeToScreen('8')">8</button>
@@ -28,25 +34,55 @@
         </span>
         <span class="button-column">
           <button class="op-button">
-            <img src="assets/divide.png" alt= "÷" style="width: 24px" onclick="writeToScreen('÷')" />
+            <img
+              src="assets/divide.png"
+              alt="÷"
+              style="width: 24px"
+              onclick="writeToScreen('÷')"
+            />
           </button>
           <button class="op-button">
-            <img src="assets/multiply.png" alt="*" style="width: 22px" onclick="writeToScreen('x')" />
+            <img
+              src="assets/multiply.png"
+              alt="*"
+              style="width: 22px"
+              onclick="writeToScreen('x')"
+            />
           </button>
           <button class="op-button">
-            <img src="assets/minus.png" alt="-" style="width: 24px" onclick="writeToScreen('-')" />
+            <img
+              src="assets/minus.png"
+              alt="-"
+              style="width: 24px"
+              onclick="writeToScreen('-')"
+            />
           </button>
           <button class="op-button">
-            <img src="assets/plus.png" alt="+" style="width: 24px" onclick="writeToScreen('+')" />
+            <img
+              src="assets/plus.png"
+              alt="+"
+              style="width: 24px"
+              onclick="writeToScreen('+')"
+            />
           </button>
         </span>
         <span class="button-column">
           <button class="delete-button">
-            <img src="assets/delete.png" alt="DEL" style="width: 24px" onclick="clearLastCharacter()" />
+            <img
+              src="assets/delete.png"
+              alt="DEL"
+              style="width: 24px"
+              onclick="clearLastCharacter()"
+            />
           </button>
           <button class="delete-button" onclick="clearScreen()">AC</button>
           <button class="solve-button">
-            <img src="assets/equal.png" alt="DEL" style="width: 24px" onclick="calculate()"/>
+            <img
+              src="assets/equal.png"
+              alt="DEL"
+              style="width: 24px"
+              onclick="calculate()"
+            />
           </button>
         </span>
       </div>
