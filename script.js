@@ -1,7 +1,10 @@
 let total = 0;
+let totalAchieved = false;
+
 function writeToScreen(enteredValue) {
-  if (document.getElementById("result").value === "0") {
+  if (document.getElementById("result").value === "0" || totalAchieved) {
     document.getElementById("result").value = "";
+    totalAchieved = false;
   }
   let expression =
     document.getElementById("result").value[
@@ -44,7 +47,57 @@ function clearLastCharacter() {
   document.getElementById("result").value = val;
 }
 
-function calculate() {}
+function calculate() {
+  let equation = document.getElementById("result").value + " ";
+  if (equation === "0") {
+    return;
+  }
+
+  let num = "";
+  let intNum = 0;
+  let i = 0;
+  while (equation[i] !== " ") {
+    num += equation[i];
+    i++;
+  }
+
+  intNum = parseFloat(num);
+  total += intNum;
+  intNum = 0;
+  let exp = "";
+  for (let j = i; j < equation.length; j++) {
+    if (isNumber(equation[j]) || equation[j] === ".") {
+      num += equation[j];
+    } else if (isExpression(equation[j])) {
+         exp = equation[j];
+    
+    } else if (equation[j] === " " && num !== "") {
+      intNum = parseFloat(num);
+      switch (exp) {
+        case "+":
+          total += intNum;
+          break;
+        case "-":
+          total -= intNum;
+          break;
+        case "x":
+          total *= intNum;
+          break;
+        case "÷":
+          total /= intNum;
+          break;
+      }
+
+      intNum = 0;
+      num = "";
+      exp = "";
+    }
+  }
+  console.log(total);
+  totalAchieved = true;
+  document.getElementById("result").value = "" +total;
+  total = 0;
+}
 
 function checkOperation(enteredValue) {
   let expression =
@@ -99,5 +152,7 @@ document.addEventListener("keypress", (event) => {
     writeToScreen("÷");
   } else if (event.key === ".") {
     writeToScreen(".");
+  }else if (event.key === "Enter"){
+    calculate();
   }
 });
