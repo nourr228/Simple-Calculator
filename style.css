@@ -82,3 +82,19 @@ button {
   background-color: #2196f3;
   flex-shrink: 1;
 }
+
+.button:hover {
+  background-color: #7b7575;
+}
+
+.op-button:hover {
+  background-color: darkorange;
+}
+
+.delete-button:hover {
+  background-color: darkgray;
+} 
+
+.solve-button:hover {
+  background-color: #1976d2;
+}
