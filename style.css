@@ -15,7 +15,6 @@
   background-color: rgb(0, 0, 0);
   border-radius: 10px;
   flex-shrink: 1;
-
 }
 
 .result {
@@ -54,7 +53,7 @@ button {
   flex-shrink: 1;
 }
 
-.zero-button{
+.zero-button {
   width: 125px;
   cursor: pointer;
   border-radius: 100px;
@@ -101,14 +100,14 @@ button {
 
 .delete-button:hover {
   background-color: darkgray;
-} 
+}
 
 .solve-button:hover {
   background-color: #1976d2;
 }
 
 @media (max-width: 768px) {
-  .box{
+  .box {
     flex-shrink: 1;
   }
 }
@@ -185,7 +184,6 @@ button {
     font-size: 28px;
   }
   #special {
-    margin-right: 0px; /* Center-align the special row */
-    /* Ensure proper wrapping */
+    margin-right: 0px;
   }
 }
