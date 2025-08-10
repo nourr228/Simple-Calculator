@@ -90,7 +90,7 @@ button {
   flex-shrink: 1;
 }
 
-.button:hover {
+.button:hover, .zero-button:hover {
   background-color: #7b7575;
 }
 
@@ -106,46 +106,12 @@ button {
   background-color: #1976d2;
 }
 
+
 @media (max-width: 768px) {
   .box {
     flex-shrink: 1;
   }
 }
-
-@media (max-width: 300px) {
-  .background {
-    flex-direction: column;
-  }
-
-  .box {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .result {
-    font-size: 18px;
-  }
-
-  .buttons {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  button {
-    width: 50px;
-    font-size: 28px;
-  }
-
-  .solve-button {
-    width: 50px;
-    font-size: 28px;
-  }
-  .zero-button {
-    width: 50px;
-    font-size: 28px;
-  }
-}
-
 @media (max-width: 300px) {
   .background {
     flex-direction: column;
