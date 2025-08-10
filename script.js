@@ -48,54 +48,71 @@ function clearLastCharacter() {
 }
 
 function calculate() {
-  let equation = document.getElementById("result").value + " ";
-  if (equation === "0") {
-    return;
-  }
-
-  let num = "";
-  let intNum = 0;
-  let i = 0;
-  while (equation[i] !== " ") {
-    num += equation[i];
-    i++;
-  }
-
-  intNum = parseFloat(num);
-  total += intNum;
-  intNum = 0;
-  let exp = "";
-  for (let j = i; j < equation.length; j++) {
-    if (isNumber(equation[j]) || equation[j] === ".") {
-      num += equation[j];
-    } else if (isExpression(equation[j])) {
-      exp = equation[j];
-    } else if (equation[j] === " " && num !== "") {
-      intNum = parseFloat(num);
-      switch (exp) {
-        case "+":
-          total += intNum;
-          break;
-        case "-":
-          total -= intNum;
-          break;
-        case "x":
-          total *= intNum;
-          break;
-        case "÷":
-          total /= intNum;
-          break;
+  let equation = document.getElementById("result").value;
+  let opArr = [];
+  let numArr = [];
+  let currentNum = "";
+  for (let i = 0; i < equation.length; i++) {
+    if (isNumber(equation[i]) || equation[i] === ".") {
+      currentNum += equation[i];
+    } else if (isExpression(equation[i])) {
+      if (
+        opArr.length === 0 ||
+        givePriority(opArr[opArr.length - 1]) <= givePriority(equation[i])
+      ) {
+        opArr.push(equation[i]);
+      } else {
+        let num1 = numArr.pop();
+        let num2 = numArr.pop();
+        let op = opArr.pop();
+        switch (op) {
+          case "+":
+            numArr.push(num2 + num1);
+            break;
+          case "-":
+            numArr.push(num2 - num1);
+            break;
+          case "x":
+            numArr.push(num2 * num1);
+            break;
+          case "÷":
+            numArr.push(num2 / num1);
+            break;
+        }
+        opArr.push(equation[i]);
       }
-
-      intNum = 0;
-      num = "";
-      exp = "";
+      i++;
+    } else {
+      numArr.push(parseFloat(currentNum));
+      currentNum = "";
     }
   }
-  console.log(total);
+  numArr.push(parseFloat(currentNum));
+
+  while (numArr.length > 1 && opArr.length > 0) {
+    let num1 = numArr.pop();
+    let num2 = numArr.pop();
+    let op = opArr.pop();
+    switch (op) {
+      case "+":
+        numArr.push(num2 + num1);
+        break;
+      case "-":
+        numArr.push(num2 - num1);
+        break;
+      case "x":
+        numArr.push(num2 * num1);
+        break;
+      case "÷":
+        numArr.push(num2 / num1);
+        break;
+    }
+  }
+  total = numArr[0];
+  console.log(numArr.length);
+  console.log(opArr.length);
+  document.getElementById("result").value = total;
   totalAchieved = true;
-  document.getElementById("result").value = "" + total;
-  total = 0;
 }
 
 function checkOperation(enteredValue) {
@@ -155,3 +172,7 @@ document.addEventListener("keypress", (event) => {
     calculate();
   }
 });
+
+function givePriority(op) {
+  return op === "x" || op === "÷" ? 1 : 0;
+}

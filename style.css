@@ -4,8 +4,7 @@
   background-size: cover;
   justify-content: center;
   align-items: center;
-  min-height: 90vh;
-  flex-shrink: 1;
+  min-height: 95vh;
 }
 
 .box {
@@ -15,8 +14,8 @@
   height: 280px;
   background-color: rgb(0, 0, 0);
   border-radius: 10px;
-  flex-grow: 1;
   flex-shrink: 1;
+
 }
 
 .result {
@@ -48,6 +47,15 @@
 
 button {
   width: 60px;
+  cursor: pointer;
+  border-radius: 100px;
+  font-size: 33px;
+  font-family: "Work Sans", sans-serif;
+  flex-shrink: 1;
+}
+
+.zero-button{
+  width: 125px;
   cursor: pointer;
   border-radius: 100px;
   font-size: 33px;
@@ -97,4 +105,87 @@ button {
 
 .solve-button:hover {
   background-color: #1976d2;
+}
+
+@media (max-width: 768px) {
+  .box{
+    flex-shrink: 1;
+  }
+}
+
+@media (max-width: 300px) {
+  .background {
+    flex-direction: column;
+  }
+
+  .box {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .result {
+    font-size: 18px;
+  }
+
+  .buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  button {
+    width: 50px;
+    font-size: 28px;
+  }
+
+  .solve-button {
+    width: 50px;
+    font-size: 28px;
+  }
+  .zero-button {
+    width: 50px;
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 300px) {
+  .background {
+    flex-direction: column;
+  }
+
+  .box {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .result {
+    font-size: 18px;
+    height: auto;
+  }
+
+  .buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  button {
+    width: 50px;
+    font-size: 28px;
+  }
+
+  .solve-button {
+    width: 50px;
+    font-size: 28px;
+  }
+  .zero-button {
+    width: 50px;
+    font-size: 28px;
+  }
+  .op-button {
+    width: 50px;
+    font-size: 28px;
+  }
+  #special {
+    margin-right: 0px; /* Center-align the special row */
+    /* Ensure proper wrapping */
+  }
 }
